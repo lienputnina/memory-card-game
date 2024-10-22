@@ -24,3 +24,7 @@ This is be a memory card game. The user flips cards to find a matching pair.
 - When the user clicks on a card, the card "flips", revealing the "correct" symbol
 - Card state might be saved in a hook
 - When all cards are flipped, you get a modal with "Congrats" and a button to start again
+
+### Finishing touches
+
+- Change tab icon
