@@ -1,6 +1,7 @@
+import { FC } from "react";
 import "./App.scss";
 
-const App = () => {
+const App: FC = () => {
   return (
     <main>
       <div className="title-area">
