@@ -1,0 +1,30 @@
+/*
+todo
+1. font-family and similar settings
+2. background color
+3. link design
+4. body design for all
+5. heading design
+* Mobile-first
+etc.
+*/
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(20, 124, 98);
+  margin: 3rem;
+  font-family: Helvetica, Arial, sans-serif;
+  color: rgb(198, 224, 224);
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 400;
+}
