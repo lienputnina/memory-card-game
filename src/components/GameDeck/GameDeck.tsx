@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import "./GameDeck.scss";
 
 interface Cell {
@@ -12,11 +12,30 @@ interface GameDeckProps {
 export const GameDeck: FC<GameDeckProps> = ({ cells }) => {
   // todo: add state handling logic
   /*
-  2. Map through them and return table with 4 rows each with 4 table data items
-  2.1. Conditionally render: if not clicked, render ?, otherwise render picture (only for table cells)
-  3. Create onClick function that flips the cards: changes class/image on click. Add CSS animation
+  3.1.1. Card flips again, if no pair is found => add logic to find matching pairs
+  3.1 Add CSS animation
+  3.2. Shuffle the cards after victory
   4. think about accessibility
   */
+
+  const [activeCells, setActiveCells] = useState<number[]>([]);
+
+  const flipCard = (index: number): void => {
+    setActiveCells((prevActiveCells) => {
+      // if the index of the current cell is already "registered" (is it "active"?)
+      if (prevActiveCells.includes(index)) {
+        return prevActiveCells;
+      }
+
+      // If the array if full
+      if (prevActiveCells.length === 2) {
+        return [prevActiveCells[1], index]; // Replace the oldest active cell
+      }
+
+      // Otherwise, add the new cell to the active cells
+      return [...prevActiveCells, index];
+    });
+  };
 
   return (
     <table className="game-deck">
@@ -25,16 +44,30 @@ export const GameDeck: FC<GameDeckProps> = ({ cells }) => {
           <tr key={rowIndex} className="game-row">
             {cells
               .slice(rowIndex * 4, rowIndex * 4 + 4)
-              .map((cell, cellIndex) => (
-                <td key={cellIndex} className="game-card">
-                  <img
-                    src={cell.image}
-                    alt={`Image ${rowIndex * 4 + cellIndex + 1}`}
-                    width={70}
-                    height={70}
-                  />
-                </td>
-              ))}
+              .map((cell, cellIndex) => {
+                // Calculating an index to represent each cell's position in a single number
+                const cellIndexInGrid = rowIndex * 4 + cellIndex;
+                // Determining, if the current cell (at cellIndexInGrid) is active.
+                const isActive = activeCells.includes(cellIndexInGrid);
+                return (
+                  <td
+                    key={`${rowIndex}-${cellIndex}`} // String key for React rendering
+                    className="game-card"
+                    onClick={() => flipCard(cellIndexInGrid)}
+                  >
+                    {isActive ? (
+                      <img
+                        src={cell.image}
+                        alt={`Image ${cellIndexInGrid + 1}`}
+                        width={70}
+                        height={70}
+                      />
+                    ) : (
+                      " "
+                    )}
+                  </td>
+                );
+              })}
           </tr>
         ))}
       </tbody>
