@@ -29,8 +29,10 @@ export const GameDeck: FC<GameDeckProps> = ({ cells }) => {
         });
       }
 
-      setActiveCellOne(null);
-      setActiveCellTwo(null);
+      setTimeout(() => {
+        setActiveCellOne(null);
+        setActiveCellTwo(null);
+      }, 500);
     }
   }, [activeCellOne, activeCellTwo]);
 

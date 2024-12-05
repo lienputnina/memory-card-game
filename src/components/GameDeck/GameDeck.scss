@@ -25,16 +25,16 @@
 }
 
 .image-hidden {
-  visibility: hidden;
   opacity: 0;
-  transition: visibility 0s 2s, opacity 2s linear;
+  transition: visibility 0s 0.5s, opacity 0.5s linear;
 }
 
 .image-visible {
-  visibility: visible;
   opacity: 1;
-  transition: opacity 2s linear;
+  transition: opacity 0.5s linear;
 }
+
+// todo - center images. Set margins or something
 
 dialog {
   border: 1px solid transparent;
