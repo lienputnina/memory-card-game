@@ -8,17 +8,12 @@ interface GameDeckProps {
 
 /*
 todo
-1. Style the modal
-2. Add "Start again" button + clear the deck 
 3. Fix the "image wobble"
 4. Add "flip" animation
 5. Add shuffle option 
 6. Host on Netlify/Vercel
 */
 
-/*
-1. Created two new states - activeCellOne and activeCellTwo
-*/
 export const GameDeck: FC<GameDeckProps> = ({ cells }) => {
   const [flippedCells, setFlippedCells] = useState<CellData[]>([]);
   const [activeCellOne, setActiveCellOne] = useState<CellData | null>(null);
@@ -49,6 +44,13 @@ export const GameDeck: FC<GameDeckProps> = ({ cells }) => {
       dialogRef.current?.showModal();
     }
   }, [flippedCells.length]);
+
+  const clearDeck = (): void => {
+    dialogRef.current?.close();
+    setFlippedCells([]);
+    setActiveCellOne(null);
+    setActiveCellTwo(null);
+  };
 
   return (
     <>
@@ -100,9 +102,13 @@ export const GameDeck: FC<GameDeckProps> = ({ cells }) => {
           ))}
         </tbody>
       </table>
-      <dialog ref={dialogRef} className="win-dialog">
-        <p>You win in {moves} moves 🎉</p>
-        <button className="dialog-button">Retry</button>
+      <dialog ref={dialogRef}>
+        <div className="win-dialog">
+          <p>You win in {moves} moves 🎉</p>
+          <button className="dialog-button" onClick={clearDeck}>
+            Retry
+          </button>
+        </div>
       </dialog>
     </>
   );
