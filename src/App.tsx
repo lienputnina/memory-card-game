@@ -8,7 +8,11 @@ const App: FC = () => {
     <main>
       <div className="title-area">
         <h1 className="game-title">Memory card game</h1>
-        <p className="game-description">Some text</p>
+        <p className="game-description">
+          This is a game where you need to find matching pairs. Click on a card
+          to see its image. Click on another one to see, if it matches. The game
+          ends, once you've found all pairs.
+        </p>
       </div>
       <GameDeck cells={cellData} />
     </main>
