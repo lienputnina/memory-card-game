@@ -8,7 +8,6 @@ interface GameDeckProps {
 
 /*
 todo
-4. Add "flip" animation
 5. Add shuffle option 
 6. Host on Netlify/Vercel
 */
@@ -30,10 +29,8 @@ export const GameDeck: FC<GameDeckProps> = ({ cells }) => {
         });
       }
 
-      setTimeout(() => {
-        setActiveCellOne(null);
-        setActiveCellTwo(null);
-      }, 200);
+      setActiveCellOne(null);
+      setActiveCellTwo(null);
     }
   }, [activeCellOne, activeCellTwo]);
 
@@ -84,16 +81,13 @@ export const GameDeck: FC<GameDeckProps> = ({ cells }) => {
                       className="game-card"
                       onClick={handleCellClick}
                     >
-                      {showCell ? (
-                        <img
-                          src={cell.image}
-                          alt={`Image ${cell.type} ${cell.id}`}
-                          width={70}
-                          height={70}
-                        />
-                      ) : (
-                        " "
-                      )}
+                      <img
+                        src={cell.image}
+                        alt={`Image ${cell.type} ${cell.id}`}
+                        width={70}
+                        height={70}
+                        className={showCell ? "image-visible" : "image-hidden"}
+                      />
                     </td>
                   );
                 })}

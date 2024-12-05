@@ -24,8 +24,16 @@
   padding: 1.5px;
 }
 
-.game-card > image {
-  align-self: center;
+.image-hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 2s, opacity 2s linear;
+}
+
+.image-visible {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 2s linear;
 }
 
 dialog {
