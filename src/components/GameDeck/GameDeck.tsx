@@ -52,7 +52,9 @@ export const GameDeck: FC<GameDeckProps> = ({ cells }) => {
 
   return (
     <>
-      <p>{moves}</p>
+      <p className="move-count">
+        <strong>Moves made:</strong> {moves}
+      </p>
       <table className="game-deck">
         <tbody>
           {Array.from({ length: 4 }).map((_, rowIndex) => (
@@ -98,9 +100,9 @@ export const GameDeck: FC<GameDeckProps> = ({ cells }) => {
           ))}
         </tbody>
       </table>
-      <dialog ref={dialogRef}>
+      <dialog ref={dialogRef} className="win-dialog">
         <p>You win in {moves} moves 🎉</p>
-        <button>Retry</button>
+        <button className="dialog-button">Retry</button>
       </dialog>
     </>
   );
