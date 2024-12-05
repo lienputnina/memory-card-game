@@ -30,6 +30,7 @@ export type CellData = {
 3. Created type with the types for cell objects
 4. Duplicated first 8 cell objects and added unique ids to them
 */
+//todo - auto-generate ids for a shuffle option
 export const cellData: CellData[] = [
   {
     id: "1",

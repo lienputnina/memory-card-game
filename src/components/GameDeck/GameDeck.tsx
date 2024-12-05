@@ -8,7 +8,6 @@ interface GameDeckProps {
 
 /*
 todo
-3. Fix the "image wobble"
 4. Add "flip" animation
 5. Add shuffle option 
 6. Host on Netlify/Vercel
