@@ -8,10 +8,8 @@ interface GameDeckProps {
 
 /*
 todo
-5. Add shuffle option: 
-Function that takes the cells array and shuffles it every time the retry button is clicked
-Generate a new array with 16 objects that have the CellData[] key-value pairs
-6. Host on Netlify/Vercel
+Desktop layout
+Host on Netlify/Vercel
 */
 
 export const GameDeck: FC<GameDeckProps> = ({ cells }) => {
