@@ -6,8 +6,8 @@ This is be a memory card game. The user flips cards to find a matching pair.
 
 ### Finishing touches
 
-- Add "flip" animation
 - Change tab icon
+- Add a footer (?)
 - **Host on Netlify or Vercel!**
 
 ## Disclaimer
