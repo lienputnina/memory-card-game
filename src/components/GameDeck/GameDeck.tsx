@@ -8,7 +8,6 @@ interface GameDeckProps {
 
 /*
 todo
-Desktop layout
 Host on Netlify/Vercel
 */
 
@@ -90,8 +89,6 @@ export const GameDeck: FC<GameDeckProps> = ({ cells }) => {
                     <img
                       src={cell.image}
                       alt={`Image ${cell.type} ${cell.id}`}
-                      width={70}
-                      height={70}
                       className={showCell ? "image-visible" : "image-hidden"}
                     />
                   </td>

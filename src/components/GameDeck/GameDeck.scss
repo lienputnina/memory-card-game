@@ -1,3 +1,4 @@
+// Mobile view
 .move-count {
   margin-bottom: 1rem;
 }
@@ -27,6 +28,8 @@
 img {
   display: block;
   margin: 0 auto;
+  width: 70px;
+  height: 70px;
 }
 
 .image-hidden {
@@ -53,19 +56,158 @@ dialog {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 7px;
   row-gap: 20px;
+  font-size: 18px;
 }
 
 .dialog-button {
-  width: 100px;
-  height: 30px;
+  width: 110px;
+  height: 35px;
   padding: 2px;
   border: 2px solid transparent;
   border-radius: 4px;
   background-color: #187ead;
   color: white;
-  font-size: 15px;
+  font-size: 16px;
 }
 
-// Desktop rules
+// Desktop view (500px and above)
+@media all and (min-width: 500px) and (max-width: 600px) {
+  .game-deck {
+    height: 500px;
+    width: 500px;
+  }
+
+  .game-card {
+    width: fit-content;
+    height: fit-content;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+
+  dialog {
+    width: 300px;
+    height: 100px;
+  }
+
+  .win-dialog {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    font-size: 20px;
+  }
+
+  .dialog-button {
+    width: 100px;
+    height: 33px;
+    font-size: 18px;
+  }
+}
+
+@media all and (min-width: 600px) and (max-width: 700px) {
+  .game-deck {
+    height: 600px;
+    width: 600px;
+  }
+
+  .game-card {
+    width: fit-content;
+    height: fit-content;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+
+  dialog {
+    width: 330px;
+    height: 130px;
+  }
+
+  .win-dialog {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    font-size: 25px;
+  }
+
+  .dialog-button {
+    width: 110px;
+    height: 40px;
+    font-size: 22px;
+  }
+}
+
+@media all and (min-width: 700px) and (max-width: 800px) {
+  .game-deck {
+    height: 650px;
+    width: 650px;
+  }
+
+  .game-card {
+    width: fit-content;
+    height: fit-content;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+
+  dialog {
+    width: 350px;
+    height: 150px;
+  }
+
+  .win-dialog {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    font-size: 29px;
+  }
+
+  .dialog-button {
+    width: 130px;
+    height: 45px;
+    font-size: 27px;
+  }
+}
+
+@media all and (min-width: 800px) {
+  .game-deck {
+    height: 800px;
+    width: 800px;
+  }
+
+  .game-card {
+    width: fit-content;
+    height: fit-content;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+
+  dialog {
+    width: 390px;
+    height: 190px;
+  }
+
+  .win-dialog {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    font-size: 30px;
+  }
+
+  .dialog-button {
+    width: 145px;
+    height: 45px;
+    font-size: 25px;
+  }
+}
