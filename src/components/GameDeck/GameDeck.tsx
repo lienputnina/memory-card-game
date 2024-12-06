@@ -8,7 +8,9 @@ interface GameDeckProps {
 
 /*
 todo
-5. Add shuffle option 
+5. Add shuffle option: 
+Function that takes the cells array and shuffles it every time the retry button is clicked
+Generate a new array with 16 objects that have the CellData[] key-value pairs
 6. Host on Netlify/Vercel
 */
 
@@ -43,11 +45,17 @@ export const GameDeck: FC<GameDeckProps> = ({ cells }) => {
     }
   }, [flippedCells.length]);
 
+  const shuffleCellsArray = (cells: CellData[]): void => {
+    cells.sort(() => Math.random() - 0.5);
+  };
+
   const clearDeck = (): void => {
     dialogRef.current?.close();
     setFlippedCells([]);
     setActiveCellOne(null);
     setActiveCellTwo(null);
+
+    shuffleCellsArray(cells);
   };
 
   return (
@@ -59,40 +67,38 @@ export const GameDeck: FC<GameDeckProps> = ({ cells }) => {
         <tbody>
           {Array.from({ length: 4 }).map((_, rowIndex) => (
             <tr key={rowIndex} className="game-row">
-              {cells
-                .slice(rowIndex * 4, rowIndex * 4 + 4)
-                .map((cell, cellIndex) => {
-                  const showCell =
-                    flippedCells.includes(cell) ||
-                    cell === activeCellOne ||
-                    cell === activeCellTwo;
+              {cells.slice(rowIndex * 4, rowIndex * 4 + 4).map((cell) => {
+                const showCell =
+                  flippedCells.includes(cell) ||
+                  cell === activeCellOne ||
+                  cell === activeCellTwo;
 
-                  const handleCellClick = () => {
-                    setMoves(moves + 1);
+                const handleCellClick = () => {
+                  setMoves(moves + 1);
 
-                    if (!activeCellOne) {
-                      setActiveCellOne(cell);
-                    } else if (!activeCellTwo) {
-                      setActiveCellTwo(cell);
-                    }
-                  };
+                  if (!activeCellOne) {
+                    setActiveCellOne(cell);
+                  } else if (!activeCellTwo) {
+                    setActiveCellTwo(cell);
+                  }
+                };
 
-                  return (
-                    <td
-                      key={`${rowIndex}-${cellIndex}`}
-                      className="game-card"
-                      onClick={handleCellClick}
-                    >
-                      <img
-                        src={cell.image}
-                        alt={`Image ${cell.type} ${cell.id}`}
-                        width={70}
-                        height={70}
-                        className={showCell ? "image-visible" : "image-hidden"}
-                      />
-                    </td>
-                  );
-                })}
+                return (
+                  <td
+                    key={`${rowIndex}-${cell.id}`}
+                    className="game-card"
+                    onClick={handleCellClick}
+                  >
+                    <img
+                      src={cell.image}
+                      alt={`Image ${cell.type} ${cell.id}`}
+                      width={70}
+                      height={70}
+                      className={showCell ? "image-visible" : "image-hidden"}
+                    />
+                  </td>
+                );
+              })}
             </tr>
           ))}
         </tbody>

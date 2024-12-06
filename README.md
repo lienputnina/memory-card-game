@@ -7,6 +7,7 @@ This is be a memory card game. The user flips cards to find a matching pair.
 ### Finishing touches
 
 - Change tab icon
+- enlarge the font-size in dialog
 - Add a footer (?)
 - **Host on Netlify or Vercel!**
 

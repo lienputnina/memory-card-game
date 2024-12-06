@@ -19,7 +19,7 @@ export enum CellType {
 }
 
 export type CellData = {
-  id: string;
+  id?: string;
   image: string;
   type: CellType;
 };
@@ -31,84 +31,91 @@ export type CellData = {
 4. Duplicated first 8 cell objects and added unique ids to them
 */
 //todo - auto-generate ids for a shuffle option
+
+const generateRandomID = (length = 6) => {
+  return Math.random()
+    .toString(36)
+    .substring(2, length + 2);
+};
+
 export const cellData: CellData[] = [
   {
-    id: "1",
+    id: `${generateRandomID()}`,
     image: Cell1,
     type: CellType.C_SHARP,
   },
   {
-    id: "2",
+    id: `${generateRandomID()}`,
     image: Cell2,
     type: CellType.C_PLUS_PLUS,
   },
   {
-    id: "3",
+    id: `${generateRandomID()}`,
     image: Cell3,
     type: CellType.GO,
   },
   {
-    id: "4",
+    id: `${generateRandomID()}`,
     image: Cell4,
     type: CellType.JAVASCRIPT,
   },
   {
-    id: "5",
+    id: `${generateRandomID()}`,
     image: Cell5,
     type: CellType.PHP,
   },
   {
-    id: "6",
+    id: `${generateRandomID()}`,
     image: Cell6,
     type: CellType.PYTHON,
   },
   {
-    id: "7",
+    id: `${generateRandomID()}`,
     image: Cell7,
     type: CellType.RUST,
   },
   {
-    id: "8",
+    id: `${generateRandomID()}`,
     image: Cell8,
     type: CellType.TYPESCRIPT,
   },
   {
-    id: "9",
+    id: `${generateRandomID()}`,
     image: Cell1,
     type: CellType.C_SHARP,
   },
   {
-    id: "10",
+    id: `${generateRandomID()}`,
     image: Cell2,
     type: CellType.C_PLUS_PLUS,
   },
   {
-    id: "11",
+    id: `${generateRandomID()}`,
     image: Cell3,
     type: CellType.GO,
   },
   {
-    id: "12",
+    id: `${generateRandomID()}`,
     image: Cell4,
     type: CellType.JAVASCRIPT,
   },
   {
-    id: "13",
+    id: `${generateRandomID()}`,
     image: Cell5,
     type: CellType.PHP,
   },
   {
-    id: "14",
+    id: `${generateRandomID()}`,
     image: Cell6,
     type: CellType.PYTHON,
   },
   {
-    id: "15",
+    id: `${generateRandomID()}`,
     image: Cell7,
     type: CellType.RUST,
   },
   {
-    id: "16",
+    id: `${generateRandomID()}`,
     image: Cell8,
     type: CellType.TYPESCRIPT,
   },
