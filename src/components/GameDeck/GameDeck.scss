@@ -24,6 +24,11 @@
   padding: 1.5px;
 }
 
+img {
+  display: block;
+  margin: 0 auto;
+}
+
 .image-hidden {
   opacity: 0;
   transition: visibility 0s 0.5s, opacity 0.5s linear;
@@ -32,9 +37,9 @@
 .image-visible {
   opacity: 1;
   transition: opacity 0.5s linear;
+  vertical-align: middle;
+  text-align: center;
 }
-
-// todo - center images. Set margins or something
 
 dialog {
   border: 1px solid transparent;

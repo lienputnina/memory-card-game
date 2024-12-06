@@ -5,7 +5,7 @@ import { cellData } from "./components/GameDeck/CellData";
 
 const App: FC = () => {
   return (
-    <main>
+    <main className="landing-page">
       <div className="title-area">
         <h1 className="game-title">Memory card game</h1>
         <p className="game-description">
