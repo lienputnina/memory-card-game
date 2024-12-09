@@ -6,17 +6,12 @@ interface GameDeckProps {
   cells: CellData[];
 }
 
-/*
-todo
-Host on Netlify/Vercel
-*/
-
 export const GameDeck: FC<GameDeckProps> = ({ cells }) => {
   const [flippedCells, setFlippedCells] = useState<CellData[]>([]);
   const [activeCellOne, setActiveCellOne] = useState<CellData | null>(null);
   const [activeCellTwo, setActiveCellTwo] = useState<CellData | null>(null);
   const [moves, setMoves] = useState(0);
-  const [gameOver, setGameOver] = useState(false);
+  const [, setGameOver] = useState(false);
 
   const dialogRef = useRef<HTMLDialogElement>(null);
 
