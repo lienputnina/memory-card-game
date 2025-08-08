@@ -24,14 +24,6 @@ export type CellData = {
   type: CellType;
 };
 
-/*
-1. Added ids to all 8 elements
-2. Created enum with their types
-3. Created type with the types for cell objects
-4. Duplicated first 8 cell objects and added unique ids to them
-*/
-//todo - auto-generate ids for a shuffle option
-
 const generateRandomID = (length = 6) => {
   return Math.random()
     .toString(36)
